@@ -73,5 +73,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# Gemfile
-gem "devise"
+  #Ruby.llm
+  gem "ruby_llm"
+
+  #Devise
+  gem "devise"
