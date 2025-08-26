@@ -72,3 +72,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+  #Ruby.llm
+  gem "ruby_llm"
+
+  #Devise
+  gem "devise"
