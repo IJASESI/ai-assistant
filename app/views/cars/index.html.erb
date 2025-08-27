@@ -1,0 +1,15 @@
+<h1>My cars</h1>
+
+<%= link_to "Add a new car", new_car_path %>
+
+<ul>
+  <% @cars.each do |car| %>
+    <li>
+      <%= car.brand %> <%= car.model %> - <%= car.year %>
+    </li>
+  <% end %>
+</ul>
+
+<% if @cars.empty? %>
+  <p>No car added yet.</p>
+<% end %>
