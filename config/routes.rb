@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :cars, only: [:index, :new, :create, :show] do
-    resources :chats, only: [:index, :create]
+    resources :chats, only: [:create]
   end
 
   resources :chats, only: [:show] do

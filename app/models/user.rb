@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cars
-  has_many :chats, through: :cars
+  # has_many :chats, through: :cars
   validates :first_name, :last_name, presence: true
   validates :email, uniqueness: true
 end

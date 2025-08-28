@@ -22,9 +22,12 @@ laurie = User.create!(first_name: "Laurie", last_name: "Small Rock", email: "sma
 puts "Finished! Created #{User.count} users."
 
 # 4. Create the cars instances 🏗️
-Car.create!(brand: "Opel", model: "Astra", year: 2000, user: joao)
-Car.create!(brand: "Lamborghini", model: "Urus", year: 2025, user: ricardo)
-Car.create!(brand: "Mitsubishi", model: "Colt", year: 2009, user: laurie)
+opel = Car.create!(brand: "Opel", model: "Astra", year: 2000, user: joao)
+Chat.create!(title: "untitle", model_id: "gpt-4.1-nano", car: opel)
+lamborghini = Car.create!(brand: "Lamborghini", model: "Urus", year: 2025, user: ricardo)
+Chat.create!(title: "untitle", model_id: "gpt-4.1-nano", car: lamborghini)
+mitsubishi = Car.create!(brand: "Mitsubishi", model: "Colt", year: 2009, user: laurie)
+Chat.create!(title: "untitle", model_id: "gpt-4.1-nano", car: mitsubishi)
 
 # 5. Display a message 🎉
 puts "Finished! Created #{Car.count} cars."

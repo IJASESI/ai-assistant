@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
   belongs_to :chat
-  validates :question, presence: true
+  validates :content, presence: true
 end
