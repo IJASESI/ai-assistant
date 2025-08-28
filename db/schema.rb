@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_26_125019) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_28_152639) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,19 +25,37 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_26_125019) do
   end
 
   create_table "chats", force: :cascade do |t|
+    t.string "title"
+    t.string "model_id"
     t.bigint "car_id", null: false
-    t.bigint "message_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_chats_on_car_id"
-    t.index ["message_id"], name: "index_chats_on_message_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.string "role"
+    t.bigint "chat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "model_id"
+    t.integer "input_tokens"
+    t.integer "output_tokens"
+    t.bigint "tool_call_id"
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["tool_call_id"], name: "index_messages_on_tool_call_id"
+  end
+
+  create_table "tool_calls", force: :cascade do |t|
+    t.bigint "message_id", null: false
+    t.string "tool_call_id"
+    t.string "name"
+    t.jsonb "arguments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_tool_calls_on_message_id"
+    t.index ["tool_call_id"], name: "index_tool_calls_on_tool_call_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,5 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_26_125019) do
 
   add_foreign_key "cars", "users"
   add_foreign_key "chats", "cars"
-  add_foreign_key "chats", "messages"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "tool_calls"
+  add_foreign_key "tool_calls", "messages"
 end

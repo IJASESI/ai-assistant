@@ -8,6 +8,7 @@ class CarsController < ApplicationController
   def create
     @car = current_user.cars.new(car_params)
     if @car.save
+      Chat.create(title: "untitle", model_id: "gpt-4.1-nano", car: @car)
       redirect_to cars_path
     else
       render :new, status: :unprocessable_entity
