@@ -1,7 +1,8 @@
 <%= link_to "← Back", cars_path(@chat.car) %> /
 
 <div id="chat_title">
-  <h1><%= @chat.title %></h1>
+  <h1>Ask MechAnIc about your</h1>
+  <h2><%= @car.brand %> <%= @car.model %> <%= @car.year %></h2>
 </div>
 
 <div id="new_message">

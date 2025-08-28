@@ -5,10 +5,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.role = "user"
     @message.chat = @chat
-    if @message.save
-      build_conversation_history
-      @response = RubyLLM.chat.with_instructions(instructions).ask(@message.content)
-      Message.create(role: "assistant", content: @response.content, chat: @chat)
+    if @message.valid? # don't call `save` anymore
+      @chat.with_instructions(instructions).ask(@message.content)
       redirect_to chat_path(@chat)
     else
       render "chats/show", status: :unprocessable_entity
@@ -32,13 +30,13 @@ class MessagesController < ApplicationController
       [system_prompt].compact.join("\n\n")
     end
 
-  def build_conversation_history
-    @ruby_llm_chat = RubyLLM.chat
-    @chat.messages.each do |message|
-    @ruby_llm_chat.add_message(
-      role: message.role,
-      content: message.content
-     )
-    end
-  end
+  # def build_conversation_history
+  #   @ruby_llm_chat = RubyLLM.chat
+  #   @chat.messages.each do |message|
+  #   @ruby_llm_chat.add_message(
+  #     role: message.role,
+  #     content: message.content
+  #    )
+  #   end
+  # end
 end
