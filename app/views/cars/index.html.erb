@@ -1,15 +1,17 @@
-<h1>My cars</h1>
-
-<%= link_to "Add a new car", new_car_path %>
-
-<ul>
+<div class="my-cars-container col-12 col-lg-6">
+<div class="text-center mb-3">
+  <h1 class="my-cars-title text-center mb-4">My cars</h1>
+<%= link_to "Add a new car", new_car_path, class: "btn btn-ghost mt-3" %>
+</div>
+<ul class="list-group w-50 mx-auto">
   <% @cars.each do |car| %>
-    <li>
-      <%= link_to "test", chat_path(car.chat) %><%= car.brand %> <%= car.model %> - <%= car.year %>
+    <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+      <%= car.brand %> <%= car.model %> - <%= car.year %><%= link_to "chat", chat_path(car.chat), class: "btn btn-flat" %>
     </li>
   <% end %>
 </ul>
 
 <% if @cars.empty? %>
-  <p>No car added yet.</p>
+  <p class="text-center mt-3">No car added yet.</p>
 <% end %>
+</div>

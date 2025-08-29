@@ -1,20 +1,24 @@
-<h1>Add a car</h1>
-
+<div class="form-container d-flex justify-content-center col-12 col-lg-6">
+  <div style="width: 300px">
+    <h1 class="form-title text-center mb-4">Add a car</h1>
 <%= form_with model: @car do |f| %>
-  <div>
-    <%= f.label :brand, "Brand" %>
-    <%= f.text_field :brand %>
+  <div class="form-info mb-3">
+    <%= f.label :brand, "Brand", class: "form-label" %>
+    <%= f.text_field :brand, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :model, "Model" %>
-    <%= f.text_field :model %>
+  <div class="form-info mb-3">
+    <%= f.label :model, "Model", class: "form-label" %>
+    <%= f.text_field :model, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :year, "Year" %>
-    <%= f.number_field :year %>
+  <div class="form-info mb-3">
+    <%= f.label :year, "Year", class: "form-label" %>
+    <%= f.number_field :year, class: "form-control"%>
   </div>
 
-  <%= f.submit "Save" %>
+    <%= f.submit "Save", class: "btn btn-flat w-100 mb-4" %>
+
 <% end %>
+</div>
+</div>
