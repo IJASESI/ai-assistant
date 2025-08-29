@@ -82,3 +82,4 @@ end
   gem "kramdown"
   gem "rouge"
   gem "kramdown-parser-gfm"
+  gem "cloudinary"

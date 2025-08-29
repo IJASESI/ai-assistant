@@ -1,5 +1,28 @@
-<h1>MechAnIc</h1>
-<p>Find the solution to all your car's problems</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dvanqdtdy/image/upload/v1756473922/jamie-street-JtP_Dqtz6D8-unsplash_z2gg4d.jpg);">
+  <div class="container">
+    <h1>MechAnIc</h1>
+    <p>Find the solution to all your car's problems!</p>
+    <div id="banner-buttons" class="">
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-flat" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-ghost" %>
+    </div>
+  </div>
+</div>
 
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Log in", new_user_session_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="intro col-12 col-lg-6 py-5 px-4">
+      <p class="h2-header">MecAnIc</p>
+      <h2>Your Mecanician Assistant</h2>
+      <p>No more stress when your car acts up. Mecanic is your smart AI assistant that listens to your issue, explains what’s wrong, and guides you step-by-step to a solution.</p>
+      <ul>
+        <li>Diagnose problems in seconds</li>
+        <li>Get clear, easy-to-follow solutions</li>
+        <li>Save time, money, and headaches</li>
+      </ul>
+      <p><strong>With Mecanic in your pocket, you’re never stuck on the roadside without answers.</strong></p>
+      <%= link_to "Create your account", new_user_registration_path, class: "btn btn-flat" %>
+    </div>
+  </div>
+</div>
