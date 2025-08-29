@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
       car = @chat.car
       system_prompt = <<~PROMPT
         You are an Auto Mechanic. I am a person who has a problem with my car, which is a #{car.brand}, model #{car.model}, from the year #{car.year}.
-        Help me break down my problem into small, actionable steps, giving solutions and advice.
+        Help me by saying the possible causes, break down my problem into small, actionable steps, giving solutions and advice.
         Answer concisely in markdown.
       PROMPT
 
